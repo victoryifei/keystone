@@ -37,7 +37,7 @@ function ItemsTableValue ({
 	if (to) {
 		const isImageUrl = to.search('[.](jpg|jpeg|png)') > 0;
 		if (isImageUrl) {
-			return <img className={'ItemList__url--img'} src={to} />;
+			return <img className={'ItemList__url--img'} src={to} width={"50"} />;
 		}
 	}
 	
