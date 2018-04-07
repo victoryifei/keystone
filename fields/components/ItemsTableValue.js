@@ -33,6 +33,14 @@ function ItemsTableValue ({
 	}, className);
 	props.to = linkRef;
 
+	// Replace <a> with <img> if url is image url
+	if (to) {
+		const isImageUrl = to.search('[.](jpg|jpeg|png)') > 0;
+		if (isImageUrl) {
+			return <img className={'ItemList__url--img'} src={to} />;
+		}
+	}
+	
 	return <Component {...props} />;
 };
 
