@@ -55,7 +55,7 @@ function ItemsTableValue ({
 				});
 
 				if (actionMatched) {
-					return <Button size="xs" href={to.substring(xiangxStartIndex)}>{actionMatched.name}</Button>;
+					return <Button size="xs" target="_blank" href={to.substring(xiangxStartIndex)}>{actionMatched.name}</Button>;
 				}
 			}
 		}
