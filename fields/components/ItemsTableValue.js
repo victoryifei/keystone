@@ -35,14 +35,27 @@ function ItemsTableValue ({
 
 	// Xiangx customization
 	if (to) {
-		const isImageUrl = to.search('[.](jpg|jpeg|png)') > 0;
 
-		if (isImageUrl) {
+		if (to.search('[.](jpg|jpeg|png)') !== -1) {
+			// image url
 			return <img className={'ItemList__url--img'} src={to} width={"50"} />;
 		} else {
 			const xiangxStartIndex = to.search('/xiangx/');
+
 			if (xiangxStartIndex !== -1) {
-				return <a href={to.substring(xiangxStartIndex)}>上传到erp</a>;
+				// xiangx api
+				const actionUrlToName = [
+					{ url: '/xiangx/erp/upload_product', name: '上传到erp' },
+					{ url: '/xiangx/cos/product_files', name: '所有图片' }
+				];
+
+				const actionMatched = actionUrlToName.find(function (action) {
+					return to.search(action.url) !== -1;
+				});
+
+				if (actionMatched) {
+					return <a href={to.substring(xiangxStartIndex)}>{actionMatched.name}</a>;
+				}
 			}
 		}
 	}
