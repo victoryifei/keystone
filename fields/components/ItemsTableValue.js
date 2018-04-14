@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import classnames from 'classnames';
 import { Link } from 'react-router';
+import { Button } from '../../admin/client/App/elemental';
 
 function ItemsTableValue ({
 	className,
@@ -54,7 +55,7 @@ function ItemsTableValue ({
 				});
 
 				if (actionMatched) {
-					return <a href={to.substring(xiangxStartIndex)}>{actionMatched.name}</a>;
+					return <Button size="sm" href={to.substring(xiangxStartIndex)}>{actionMatched.name}</Button>;
 				}
 			}
 		}
