@@ -36,10 +36,14 @@ function ItemsTableValue ({
 	// Xiangx customization
 	if (to) {
 		const isImageUrl = to.search('[.](jpg|jpeg|png)') > 0;
+
 		if (isImageUrl) {
 			return <img className={'ItemList__url--img'} src={to} width={"50"} />;
-		} else if (to.search('/xiangx/erp/upload_product') !== -1) {
-			return <a href={to}>上传到erp</a>;
+		} else {
+			const xiangxStartIndex = to.search('/xiangx/');
+			if (xiangxStartIndex !== -1) {
+				return <a href={to.substring(xiangxStartIndex)}>上传到erp</a>;
+			}
 		}
 	}
 	
