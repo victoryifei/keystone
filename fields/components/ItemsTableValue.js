@@ -38,7 +38,7 @@ function ItemsTableValue ({
 		const isImageUrl = to.search('[.](jpg|jpeg|png)') > 0;
 		if (isImageUrl) {
 			return <img className={'ItemList__url--img'} src={to} width={"50"} />;
-		} else if (to.startsWith('/xiangx/erp/upload_product')) {
+		} else if (to.search('/xiangx/erp/upload_product') !== -1) {
 			return <a href={to}>上传到erp</a>;
 		}
 	}
