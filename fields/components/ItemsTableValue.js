@@ -33,11 +33,13 @@ function ItemsTableValue ({
 	}, className);
 	props.to = linkRef;
 
-	// Replace <a> with <img> if url is image url
+	// Xiangx customization
 	if (to) {
 		const isImageUrl = to.search('[.](jpg|jpeg|png)') > 0;
 		if (isImageUrl) {
 			return <img className={'ItemList__url--img'} src={to} width={"50"} />;
+		} else if (to.startsWith('/xiangx/erp/upload_product')) {
+			return <a href={to}>上传到erp</a>;
 		}
 	}
 	
