@@ -36,8 +36,9 @@ function ItemsTableValue ({
 
 	// Xiangx customization
 	if (to) {
-
-		if (to.search('[.](jpg|jpeg|png)') !== -1) {
+		const isOldCosImage = to.search('com/XiangX-App/product/') !== -1;
+		const hasImageExtension = to.search('[.](jpg|jpeg|png)') !== -1;
+		if (hasImageExtension || isOldCosImage) {
 			// image url
 			return <img className={'ItemList__url--img'} src={to} width={"50"} />;
 		} else {
