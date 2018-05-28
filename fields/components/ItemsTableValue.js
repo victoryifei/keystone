@@ -48,7 +48,7 @@ function ItemsTableValue ({
 				// xiangx api
 				const actionUrlToName = [
 					{ url: '/xiangx/erp/upload_product', name: '上传到erp' },
-					{ url: '/xiangx/cos/product_files', name: '所有图片' }
+					{ url: '/xiangx/product/files', name: '所有图片' }
 				];
 
 				const actionMatched = actionUrlToName.find(function (action) {
