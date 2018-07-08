@@ -10,9 +10,6 @@ module.exports = Field.create({
 	openValue () {
 		var href = this.props.value;
 		if (!href) return;
-		if (!/^(mailto\:)|(\w+\:\/\/)/.test(href)) {
-			href = 'http://' + href;
-		}
 		window.open(href);
 	},
 	renderLink () {
