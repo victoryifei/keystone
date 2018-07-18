@@ -71,6 +71,7 @@ exports.common = {
 		lineHeight: '1.9',
 		paddingLeft: '.66em',
 		paddingRight: '.66em',
+		height: 'auto',
 	},
 };
 
