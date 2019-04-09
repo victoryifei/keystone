@@ -38,7 +38,8 @@ function ItemsTableValue ({
 	if (to) {
 		const isOldCosImage = to.search('com/XiangX-App/product/') !== -1;
 		const hasImageExtension = to.search('[.](jpg|jpeg|png)') !== -1;
-		if (hasImageExtension || isOldCosImage) {
+		const isWechatAvatar = to.search('qlogo') !== -1;
+		if (hasImageExtension || isOldCosImage || isWechatAvatar) {
 			// image url
 			return <img className={'ItemList__url--img'} src={to} width={"50"} />;
 		} else {
