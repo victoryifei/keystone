@@ -6,7 +6,9 @@ module.exports = function (req, res) {
 	req.list.model.findById(req.params.id, function (err, item) {
 		if (err) return res.status(500).json({ error: 'database error', detail: err });
 		if (!item) return res.status(404).json({ error: 'not found', id: req.params.id });
-		req.list.updateItem(item, req.body, { files: req.files, user: req.user }, function (err) {
+		const fieldsToUpdate = req.query.fieldsToUpdate; // for example ["field1", "field2", "field3"]
+		const updateItemOptions = { files: req.files, user: req.user, fields: fieldsToUpdate };
+		req.list.updateItem(item, req.body, updateItemOptions, function (err) {
 			if (err) {
 				var status = err.error === 'validation errors' ? 400 : 500;
 				var error = err.error === 'database error' ? err.detail : err;
