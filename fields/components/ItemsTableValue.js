@@ -50,7 +50,8 @@ function ItemsTableValue ({
 				const actionUrlToName = [
 					{ url: '/xiangx/erp/upload_product', name: '上传到erp' },
 					{ url: '/xiangx/cos/product_files', name: '所有图片' },
-					{ url: /\/operations/, name: '操作' }
+					{ url: /\/operations/, name: '操作' },
+					{ url: /\/extension/, name: '管理' }
 				];
 
 				const actionMatched = actionUrlToName.find(function (action) {
