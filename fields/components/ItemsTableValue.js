@@ -3,6 +3,14 @@ import classnames from 'classnames';
 import { Link } from 'react-router';
 import { Button } from '../../admin/client/App/elemental';
 
+function replaceCosUrlDomain(cosUrl, domain) {
+  return cosUrl.replace("cossh", domain).replace("cos.ap-shanghai", domain);
+}
+
+function cdnImageUrl(cosUrl, style) {
+  return replaceCosUrlDomain(cosUrl, "image") + "!" + style;
+}
+
 function ItemsTableValue ({
 	className,
 	component,
@@ -39,9 +47,11 @@ function ItemsTableValue ({
 		const isOldCosImage = to.search('com/XiangX-App/product/') !== -1;
 		const hasImageExtension = to.search('[.](jpg|jpeg|png)') !== -1;
 		const isWechatAvatar = to.search('qlogo') !== -1;
+		const isInImageBucket = to.search('image-1253949149') !== -1;
 		if (hasImageExtension || isOldCosImage || isWechatAvatar) {
 			// image url
-			return <img className={'ItemList__url--img'} src={to} width={"50"} />;
+			const src = isInImageBucket ? cdnImageUrl(to, "origin") : to;
+			return <img className={'ItemList__url--img'} src={src} width={"50"} />;
 		} else {
 			const xiangxStartIndex = to.search('/xiangx/');
 
