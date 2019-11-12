@@ -53,7 +53,7 @@ function ItemsTableValue ({
 			const src = isInImageBucket ? cdnImageUrl(to, "origin") : to;
 			return <img className={'ItemList__url--img'} src={src} width={"50"} />;
 		} else {
-			const xiangxStartIndex = to.search('/xiangx/');
+			const xiangxStartIndex = to.search('/xiangx|extension/');
 
 			if (xiangxStartIndex !== -1) {
 				// xiangx api
